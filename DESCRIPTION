@@ -2,7 +2,7 @@ Package: autohrf
 Type: Package
 Title: Automated Generation of Data-Informed GLM Models in Task-Based
         fMRI Data Analysis
-Version: 1.0.3
+Version: 1.0.4
 Authors@R: 
     c(person("Jure", "Demšar", , "jure.demsar@fri.uni-lj.si", c("cre", "aut")),
     person("Nina", "Purg", , "nina.purg@ff.uni-lj.si", c("aut")),
@@ -22,10 +22,10 @@ RoxygenNote: 7.2.0
 URL: https://github.com/demsarjure/autohrf
 BugReports: https://github.com/demsarjure/autohrf/issues
 NeedsCompilation: no
-Packaged: 2022-07-20 17:50:56 UTC; jure
+Packaged: 2022-09-30 08:52:26 UTC; Jure
 Author: Jure Demšar [cre, aut],
   Nina Purg [aut],
   Grega Repovš [aut]
 Depends: R (>= 3.5.0)
 Repository: CRAN
-Date/Publication: 2022-07-21 12:00:11 UTC
+Date/Publication: 2022-09-30 09:20:03 UTC
