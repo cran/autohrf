@@ -3,7 +3,7 @@
 knitr::opts_chunk$set(fig.width=6, fig.height=4.5)
 
 ## -----------------------------------------------------------------------------
-# libs
+# libraries
 library(autohrf)
 
 # load the data
@@ -11,27 +11,35 @@ df <- swm
 head(df)
 
 ## -----------------------------------------------------------------------------
-# 2 events: delay, response
-model2 <- data.frame(event = c("delay", "response"),
-                     start_time = c(0, 10),
-                     end_time = c(10, 15))
+# model constraints for three event predictors
+model1 <- data.frame(event = c("encoding", "delay", "response"),
+                     start_time = c(0, 0.15, 10),
+                     end_time = c(0.15, 10, 13))
 
-# 3 events: encoding, delay, response
-model3 <- data.frame(event = c("encoding", "delay", "response"),
-                     start_time = c(0, 0, 10),
-                     end_time = c(0.5, 10, 15))
+# model constraints for four event predictors
+model2 <- data.frame(event = c("encoding", "early_delay", "late_delay", "response"),
+                     start_time = c(0, 0.15, 5, 10),
+                     end_time = c(0.15, 5, 10, 13))
+
+# join different model constraints
+models <- list(model1, model2)
 
 ## -----------------------------------------------------------------------------
-model_constraints <- list(model2, model3)
 # to speed vignette building we here load results from a previous autohrf run
 autofit <- swm_autofit
 
 # in practice you should run
-#autofit <- autohrf(df, model_constraints, tr = 2.5)
+# autofit <- autohrf(df, models, tr = 1, population = 10, iter = 10)
 
 ## -----------------------------------------------------------------------------
+# plot models' fitness across iterations
+plot_fitness(autofit)
+
+## -----------------------------------------------------------------------------
+# return automatically derived parameters
 best <- get_best_models(autofit)
 
 ## -----------------------------------------------------------------------------
+# visualize automatically derived parameters
 plot_best_models(autofit)
 
