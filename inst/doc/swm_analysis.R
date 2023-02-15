@@ -4,8 +4,10 @@ knitr::opts_chunk$set(fig.width=6, fig.height=4.5)
 
 ## -----------------------------------------------------------------------------
 # libraries
-library(tidyverse)
 library(autohrf)
+library(dplyr)
+library(ggplot2)
+library(magrittr)
 
 # load the data
 df <- swm
